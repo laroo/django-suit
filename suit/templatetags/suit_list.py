@@ -1,5 +1,10 @@
 from copy import copy
-from inspect import getargspec
+# from inspect import getargspec
+
+try:
+    from inspect import getfullargspec as get_args
+except ImportError:
+    from inspect import getargspec as get_args
 
 import django
 
@@ -17,6 +22,7 @@ from suit.compat import tpl_context_class
 # to use in the implementations below. Older versions of django will use the old implementation and will keep working.
 # There are corresponding CSS changes in suit/static/suit/less/ui/pagination.less to fix the pagination, as the code below generates different html objects.
 USE_NEW_DJANGO_ADMIN_PAGINATION = django.get_version() >= '3.2'
+
 
 try:
     # Python 3.
@@ -266,7 +272,7 @@ def result_row_attrs(context, cl, row_index):
     instance = cl.result_list[row_index]
 
     # Backwards compatibility for suit_row_attributes without request argument
-    args = getargspec(suit_row_attributes)
+    args = get_args(suit_row_attributes)
     if 'request' in args[0]:
         new_attrs = suit_row_attributes(instance, context['request'])
     else:
