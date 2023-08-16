@@ -398,7 +398,6 @@ class Menu(object):
 
     def user_has_permission(self, perms):
         perms = perms if isinstance(perms, (list, tuple)) else (perms,)
-        print(perms)
         return self.request.user.has_perms(perms)
 
     def activate_menu(self, menu):
