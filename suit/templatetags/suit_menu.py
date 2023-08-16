@@ -325,7 +325,10 @@ class Menu(object):
         """
         Get model name by its last part of url
         """
-        url_parts = self.get_native_model_url(model).rstrip('/').split('/')
+        url = self.get_native_model_url(model)
+        if url is None:
+            return ''
+        url_parts = url.rstrip('/').split('/')
         root_url_parts = reverse('admin:index').rstrip('/').split('/')
         return '.'.join(url_parts[len(root_url_parts):][:2])
 
