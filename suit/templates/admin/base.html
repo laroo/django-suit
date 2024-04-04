@@ -83,9 +83,7 @@
 
                   <form method="post" action="/accounts/logout/" id="logoutform">
                     {% csrf_token %}
-                    <a data-toggle="tooltip" onclick="document.getElementById('logoutform').submit()" title="Logout" class="btn btn-custom btn-sm bottomtip top_bottoms" role="button">
-                    <i class="glyphicon glyphicon-log-out" style="margin-top: 5px;"></i>
-                    </a>
+                    <a href="#" onclick="document.getElementById('logoutform').submit()">{% trans 'Log out' %}</a>
                 </form>
 
                 {% endblock %}
