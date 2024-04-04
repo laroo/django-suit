@@ -79,7 +79,7 @@
                   {% endif %}
                   <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
                   <span class="separator">|</span>
-                  <form method="post" action="/accounts/logout/" id="logoutform">
+                  <form method="post" action="/accounts/logout/" id="logoutform" style="float: right">
                     {% csrf_token %}
                     <a href="#" onclick="document.getElementById('logoutform').submit()">{% trans 'Log out' %}</a>
                 </form>
