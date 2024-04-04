@@ -80,6 +80,14 @@
                   <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
                   <span class="separator">|</span>
                   <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+
+                  <form method="post" action="/accounts/logout/" id="logoutform">
+                    {% csrf_token %}
+                    <a data-toggle="tooltip" onclick="document.getElementById('logoutform').submit()" title="Logout" class="btn btn-custom btn-sm bottomtip top_bottoms" role="button">
+                    <i class="glyphicon glyphicon-log-out" style="margin-top: 5px;"></i>
+                    </a>
+                </form>
+
                 {% endblock %}
                 </span>
               </div>
