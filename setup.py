@@ -14,7 +14,7 @@ setup(
     url='http://djangosuit.com',
     packages=['suit', 'suit.templatetags'],
     install_requires=[
-        'Django>=3.2,<5.1',
+        'Django>=3.2,<5.2',
     ],
     zip_safe=False,
     include_package_data=True,
