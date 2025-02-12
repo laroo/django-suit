@@ -7,8 +7,8 @@
             {% endif %}
         </h2>{% endif %}
   {% for line in fieldset %}
-  {% with isingle_field=line.fields|length %}
-    {% with is_single=single_field == 1 %}
+  {% with is_single_field=line.fields|length %}
+    {% with is_single=is_single_field == 1 %}
     <div class="control-group form-row{% if line.errors %} {{ is_single|yesno:'error,first-error' }} errors{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %} {{ field.field.field.widget.attrs.rowclass }}{% endfor %}{{ is_single|yesno:',multi-field-row' }}">
         {% for field in line %}
           {% spaceless %}
