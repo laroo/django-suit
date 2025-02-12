@@ -147,3 +147,13 @@ if django_version < (1, 5):
     @register.filter
     def admin_urlquote(value):
         return quote(value)
+
+
+@register.filter(is_safe=False)
+def length_is(value, arg):
+    """Return a boolean of whether the value's length is the argument."""
+
+    try:
+        return len(value) == int(arg)
+    except (ValueError, TypeError):
+        return ""
