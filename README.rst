@@ -1,3 +1,5 @@
+This is a mirror of the fork of the fork maintained in https://gitlab.tudelft.nl/mheijink/django-suit. I keep getting connection issues with gitlab.tudelft.nl, hence this mirror!
+
 ===========
 Project status
 ===========
